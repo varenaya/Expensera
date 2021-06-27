@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -89,9 +91,13 @@ class _NewTransactionState extends State<NewTransaction> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    FlatButton(
-                      textColor: Colors.white,
-                      color: Colors.orange[900],
+                    TextButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Colors.orange[500]),
+                        foregroundColor:
+                            MaterialStateProperty.all<Color>(Colors.white),
+                      ),
                       onPressed: _presentDatePicker,
                       child: Text(
                         'Choose Date',
@@ -104,11 +110,17 @@ class _NewTransactionState extends State<NewTransaction> {
                   ],
                 ),
               ),
-              RaisedButton(
-                child: Text('ADD TRANSACTION'),
+              ElevatedButton(
+                child: Text(
+                  'ADD TRANSACTION',
+                  style: TextStyle(color: Colors.white),
+                ),
                 onPressed: submitData,
-                color: Colors.indigo[800],
-                textColor: Colors.white,
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.indigo[800],
+                  ),
+                ),
               )
             ],
           ),
